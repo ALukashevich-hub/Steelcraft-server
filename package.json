@@ -1,0 +1,26 @@
+{
+  "name": "vue-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.10"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "scripts": {
+    "start": "nodemon --ext js --watch src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ALukashevich-hub/vueBackend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ALukashevich-hub/vueBackend/issues"
+  },
+  "homepage": "https://github.com/ALukashevich-hub/vueBackend#readme"
+}
