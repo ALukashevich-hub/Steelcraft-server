@@ -17,8 +17,33 @@ app.get('/', function (req, res) {
     res.send({testGet: 'Got a GET request'});
     console.log('GET COMPLITE');
 });
+
 app.post('/', function (req, res) {
   res.send({testPost: 'Got a POST request'});
   console.log('POST COMPLITE');
   console.log(req.body);
+  //SendMail();
 });
+
+let transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+      user: 'xxx@gmail.com',
+      pass: 'xxx'
+    }
+  });
+
+async function SendMail() {
+  try {
+    let result = await transporter.sendMail({
+      from: '"Node js" <nodejs@example.com>',
+      to: "light_25.96@tut.by",
+      subject: "Message from Node js",
+      text: "This message was sent from Node js server.",
+      html: "This <i>message</i> was sent from <strong>Node js</strong> server."
+    });
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
