@@ -1,14 +1,16 @@
 const express = require('express');
 const config = require('./config/config');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
+const history = require('connect-history-api-fallback');
 
 const app = express();
-
+app.use(express.static(__dirname + '/../dist'));
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(history());
+app.use(express.static(__dirname + '/../dist'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.listen(process.env.PORT || config.port,
     () => console.log(`Server start on port ${config.port} ...`));
