@@ -2,13 +2,9 @@ const express = require('express');
 const config = require('./config/config');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
-const history = require('connect-history-api-fallback');
 
 const app = express();
-app.use(express.static(__dirname + '/../dist'));
 app.use(cors());
-app.use(history());
-app.use(express.static(__dirname + '/../dist'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -16,8 +12,13 @@ app.listen(process.env.PORT || config.port,
     () => console.log(`Server start on port ${config.port} ...`));
 
 app.get('/', function (req, res) {
-    res.send({testGet: 'Got a GET request'});
+    res.send({testGet: 'Got a GET request from /'});
     console.log('GET COMPLITE');
+});
+
+app.get('/api', function (req, res) {
+  res.send({testGetApi: 'Got a GET request from /api'});
+  console.log('GET COMPLITE');
 });
 
 app.post('/', function (req, res) {

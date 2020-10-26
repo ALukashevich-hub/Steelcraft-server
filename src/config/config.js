@@ -1,3 +1,4 @@
 module.exports = {
-    port: 8081
+    port: 3000,
+    // host: 'steelcraft.by',
   }
